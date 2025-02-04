@@ -7,7 +7,7 @@
  * @brief Implementation of the Calculator class.
  * 
  * This file contains the definitions of the methods of the `Calculator` class,
- * such as addition, subtraction, multiplication, and division.
+ * such as addition, subtraction, multiplication, division, and squaring.
  */
 
 /**
@@ -18,7 +18,7 @@
  * @return double The sum of the two numbers.
  */
 double Calculator::add(double a, double b) {
-    return a + b;  ///< Return the sum of the two numbers
+    return a + b;
 }
 
 /**
@@ -29,7 +29,7 @@ double Calculator::add(double a, double b) {
  * @return double The result of subtraction.
  */
 double Calculator::subtract(double a, double b) {
-    return a - b;  ///< Return the difference between the two numbers
+    return a - b;
 }
 
 /**
@@ -40,7 +40,7 @@ double Calculator::subtract(double a, double b) {
  * @return double The product of the two numbers.
  */
 double Calculator::multiply(double a, double b) {
-    return a * b;  ///< Return the product of the two numbers
+    return a * b;
 }
 
 /**
@@ -55,13 +55,23 @@ double Calculator::divide(double a, double b) {
     if (b == 0) {
         throw std::invalid_argument("Error: Division by zero is not allowed.");
     }
-    return a / b;  ///< Return the result of division
+    return a / b;
+}
+
+/**
+ * @brief Squares a number.
+ * 
+ * @param a The number to square.
+ * @return double The square of the number.
+ */
+double Calculator::square(double a) {
+    return a * a;
 }
 
 #include <iostream>
 
 int main() {
-    Calculator calc;  ///< Create a Calculator object
+    Calculator calc;
 
     double num1 = 10.0, num2 = 5.0;
 
@@ -81,5 +91,9 @@ int main() {
         std::cout << e.what() << std::endl;
     }
 
-    return 0;  ///< Exit the program
+    // Perform squaring
+    std::cout << "Square of " << num1 << ": " << calc.square(num1) << std::endl;
+    std::cout << "Square of " << num2 << ": " << calc.square(num2) << std::endl;
+
+    return 0;
 }
